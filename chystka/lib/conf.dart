@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-String get getServer => 'http://localhost:8070';
+String get getServer => 'https://marchello.cf/chystka_server';
 String get getHashTagPref => 'сhystka';
 
 List<SocialLink> get getSocial => [
