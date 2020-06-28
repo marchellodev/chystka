@@ -135,7 +135,8 @@ class AppChannel extends ApplicationChannel {
       var newArr = [];
 
       for (var el in arr) {
-        var ip = request.connectionInfo.remoteAddress.address;
+        print(request.raw.headers['X-Real-IP'][0]);
+        var ip = request.raw.headers['X-Real-IP'][0];
 
         var res = await data.rawQuery(
             'SELECT COUNT(*) as c FROM likes WHERE event = ${el['id']} AND ip = \'$ip\'');
@@ -165,8 +166,9 @@ class AppChannel extends ApplicationChannel {
       if (id == null) {
         return Response.ok({'ok': 'error'});
       }
+      print(request.raw.headers['X-Real-IP'][0]);
 
-      var ip = request.connectionInfo.remoteAddress.address;
+      var ip = request.raw.headers['X-Real-IP'][0];
 
       var data = await db;
       var res = await data.rawQuery(

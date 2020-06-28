@@ -46,7 +46,9 @@ class NavAppBar extends StatelessWidget {
                         ),
                       )
                       .toList()),
-              Spacer(),
+              SizedBox(
+                height: 2,
+              ),
             ],
           ),
         ),

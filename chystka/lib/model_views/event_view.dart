@@ -57,9 +57,11 @@ class _EventViewState extends State<EventView> {
             SizedBox(
               width: 8,
             ),
-            Text(
-              widget.model.place,
-              style: GoogleFonts.montserrat(),
+            Expanded(
+              child: Text(
+                widget.model.place,
+                style: GoogleFonts.montserrat(),
+              ),
             ),
           ],
         ),

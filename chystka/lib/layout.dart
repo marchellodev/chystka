@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:chystka/components/events_card.dart';
 import 'package:chystka/models/event.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,13 @@ class AppLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
+        var appBar = 68;
+        try {
+          if (Platform.isAndroid || Platform.isIOS) {
+            appBar += 26;
+          }
+        } catch (_) {}
+
         if (constraints.maxWidth >= 992) {
           return Stack(
             children: [
@@ -27,7 +36,7 @@ class AppLayout extends StatelessWidget {
               ),
               Positioned.fill(
                   left: MediaQuery.of(context).size.width * 0.5,
-                  bottom: MediaQuery.of(context).size.height - 68,
+                  bottom: MediaQuery.of(context).size.height - appBar,
                   child: NavAppBar()),
             ],
           );
@@ -42,7 +51,7 @@ class AppLayout extends StatelessWidget {
                 child: EventsCard(false, events),
               ),
               Positioned.fill(
-                  bottom: MediaQuery.of(context).size.height - 68,
+                  bottom: MediaQuery.of(context).size.height - appBar,
                   child: NavAppBar()),
             ],
           );
