@@ -1,5 +1,6 @@
 import 'package:chystka/models/event.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -35,7 +36,8 @@ class EventDialogView extends StatelessWidget {
                   children: [
                     Text(
                       'Location',
-                      style: TextStyle(color: Colors.green, fontSize: 20),
+                      style: GoogleFonts.montserratAlternates(
+                          color: Colors.green, fontSize: 20),
                     ),
                     Spacer(),
                     IconButton(
@@ -61,7 +63,7 @@ class EventDialogView extends StatelessWidget {
                     ),
                     Text(
                       model.place,
-                      style: TextStyle(fontSize: 16),
+                      style: GoogleFonts.montserrat(fontSize: 16),
                     ),
                   ],
                 ),
@@ -77,7 +79,10 @@ class EventDialogView extends StatelessWidget {
                       },
                       child: Text(
                         'Open in Google Maps',
-                        style: TextStyle(fontSize: 16),
+                        style: GoogleFonts.montserrat(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey[800]),
                       ),
                     )
                   ],
@@ -85,7 +90,8 @@ class EventDialogView extends StatelessWidget {
                 // SECTION 2
                 Text(
                   'Date',
-                  style: TextStyle(color: Colors.green, fontSize: 20),
+                  style: GoogleFonts.montserratAlternates(
+                      color: Colors.green, fontSize: 20),
                 ),
                 SizedBox(
                   height: 6,
@@ -105,7 +111,7 @@ class EventDialogView extends StatelessWidget {
                     Text(
                       DateFormat('yyyy-MM-dd HH:mm')
                           .format(model.date.toLocal()),
-                      style: TextStyle(fontSize: 16),
+                      style: GoogleFonts.montserrat(fontSize: 16),
                     ),
                   ],
                 ),
@@ -122,7 +128,10 @@ class EventDialogView extends StatelessWidget {
                       },
                       child: Text(
                         'Open in Google Calendar',
-                        style: TextStyle(fontSize: 16),
+                        style: GoogleFonts.montserrat(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey[800]),
                       ),
                     )
                   ],
@@ -130,7 +139,8 @@ class EventDialogView extends StatelessWidget {
                 // SECTION 3
                 Text(
                   'Stage',
-                  style: TextStyle(color: Colors.green, fontSize: 20),
+                  style: GoogleFonts.montserratAlternates(
+                      color: Colors.green, fontSize: 20),
                 ),
                 SizedBox(
                   height: 6,
@@ -151,7 +161,7 @@ class EventDialogView extends StatelessWidget {
                       model.state.toString().split('.')[1] == 'explore'
                           ? 'planning'
                           : model.state.toString().split('.')[1],
-                      style: TextStyle(fontSize: 16),
+                      style: GoogleFonts.montserrat(fontSize: 16),
                     ),
                   ],
                 ),
@@ -166,7 +176,10 @@ class EventDialogView extends StatelessWidget {
                       },
                       child: Text(
                         'Open post on ${model.socialMedia}',
-                        style: TextStyle(fontSize: 16),
+                        style: GoogleFonts.montserrat(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey[800]),
                       ),
                     )
                   ],
@@ -174,7 +187,8 @@ class EventDialogView extends StatelessWidget {
                 // SECTION 4
                 Text(
                   'Hashtag',
-                  style: TextStyle(color: Colors.green, fontSize: 20),
+                  style: GoogleFonts.montserratAlternates(
+                      color: Colors.green, fontSize: 20),
                 ),
                 SizedBox(
                   height: 6,
@@ -193,7 +207,7 @@ class EventDialogView extends StatelessWidget {
                     ),
                     Text(
                       '#$getHashTagPref${model.id}',
-                      style: TextStyle(fontSize: 16),
+                      style: GoogleFonts.montserrat(fontSize: 16),
                     ),
                   ],
                 ),
@@ -209,7 +223,10 @@ class EventDialogView extends StatelessWidget {
                       },
                       child: Text(
                         'Find photos on Instagram',
-                        style: TextStyle(fontSize: 16),
+                        style: GoogleFonts.montserrat(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey[800]),
                       ),
                     )
                   ],

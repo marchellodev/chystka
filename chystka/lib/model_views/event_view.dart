@@ -4,6 +4,7 @@ import 'package:chystka/conf.dart';
 import 'package:chystka/model_views/event_dialog.dart';
 import 'package:chystka/models/event.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
@@ -33,16 +34,16 @@ class _EventViewState extends State<EventView> {
           children: [
             Text(
               DateFormat('dd MMMM', 'en_US').format(widget.model.date),
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                   color: Colors.grey[700],
                   fontWeight: FontWeight.w700,
                   fontSize: 14),
             ),
             Text(
               DateFormat('HH:mm', 'en_US').format(widget.model.date),
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                   color: Colors.grey[700],
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w800,
                   fontSize: 18),
             ),
           ],
@@ -56,7 +57,10 @@ class _EventViewState extends State<EventView> {
             SizedBox(
               width: 8,
             ),
-            Text(widget.model.place),
+            Text(
+              widget.model.place,
+              style: GoogleFonts.montserrat(),
+            ),
           ],
         ),
         trailing: InkWell(
@@ -77,7 +81,10 @@ class _EventViewState extends State<EventView> {
             children: [
               Text(
                 widget.model.likes.toString(),
-                style: TextStyle(fontSize: 18, color: Colors.grey[800]),
+                style: GoogleFonts.montserrat(
+                    fontSize: 18,
+                    color: Colors.grey[800],
+                    fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 width: 6,

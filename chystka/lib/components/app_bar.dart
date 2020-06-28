@@ -1,6 +1,7 @@
 // todo make text selectable
 import 'package:chystka/conf.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NavAppBar extends StatelessWidget {
@@ -16,7 +17,10 @@ class NavAppBar extends StatelessWidget {
               Spacer(),
               Text(
                 'Help us make Kyiv cleaner!',
-                style: TextStyle(color: Colors.grey[900], fontSize: 22),
+                style: GoogleFonts.montserrat(
+                    color: Colors.grey[900],
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500),
               ),
               Row(
                   mainAxisSize: MainAxisSize.min,

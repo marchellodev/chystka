@@ -11,6 +11,9 @@ export 'package:aqueduct/aqueduct.dart';
 
 Future<void> main(List<String> arguments) async {
   // state: 0 - browse, 1 - active, 2 - done
+
+  // todo
+/*
   await (await db).execute('''
 create table events
 (
@@ -83,7 +86,7 @@ create table likes
     'date': 1599591600,
     'likes': 0
   });
-
+*/
   final app = Application<AppChannel>()..options.port = 8070;
 
   final count = Platform.numberOfProcessors ~/ 2;

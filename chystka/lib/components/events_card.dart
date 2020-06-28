@@ -1,6 +1,7 @@
 import 'package:chystka/model_views/event_view.dart';
 import 'package:chystka/models/event.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
 
 class EventsCard extends StatefulWidget {
@@ -43,7 +44,8 @@ class _EventsCardState extends State<EventsCard> with TickerProviderStateMixin {
             height: 40,
             child: TabBar(
               controller: c,
-              labelStyle: TextStyle(fontWeight: FontWeight.w700),
+              labelStyle:
+                  GoogleFonts.montserratAlternates(fontWeight: FontWeight.w500),
               indicatorSize: TabBarIndicatorSize.label,
               labelColor: Color(0xff1a73e8),
               unselectedLabelColor: Color(0xff5f6368),
