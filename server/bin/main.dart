@@ -12,9 +12,9 @@ export 'package:aqueduct/aqueduct.dart';
 Future<void> main(List<String> arguments) async {
   // state: 0 - browse, 1 - active, 2 - done
 
-  // todo
-/*
-  await (await db).execute('''
+  var e = await File('.lock_db').exists();
+  if (!e) {
+    await (await db).execute('''
 create table events
 (
     id    integer
@@ -31,7 +31,7 @@ create table events
 );
   ''');
 
-  await (await db).execute('''
+    await (await db).execute('''
 create table likes
 (
 	id integer
@@ -43,68 +43,57 @@ create table likes
 );
   ''');
 
-  var data = await db;
-  await data.insert('events', {
-    'name': 'Kyiv Fortress',
-    'state': 0,
-    'media_link': 'https://facebook.com',
-    'social_media': 'Facebook',
-    'lat': 50.434341,
-    'long': 30.527756,
-    'date': 1599901200,
-    'likes': 0
-  });
+    var data = await db;
+    await data.insert('events', {
+      'name': 'Kyiv Fortress',
+      'state': 0,
+      'media_link': 'https://facebook.com',
+      'social_media': 'Facebook',
+      'lat': 50.434341,
+      'long': 30.527756,
+      'date': 1599901200,
+      'likes': 0
+    });
 
-  await data.insert('events', {
-    'name': 'Teacher\'s House',
-    'state': 2,
-    'media_link': 'https://instagram.com',
-    'social_media': 'Instagram',
-    'lat': 50.444412,
-    'long': 30.515659,
-    'date': 1598457600,
-    'likes': 0
-  });
+    await data.insert('events', {
+      'name': 'Teacher\'s House',
+      'state': 2,
+      'media_link': 'https://instagram.com',
+      'social_media': 'Instagram',
+      'lat': 50.444412,
+      'long': 30.515659,
+      'date': 1598457600,
+      'likes': 0
+    });
 
-  await data.insert('events', {
-    'name': 'Kyiv Planetarium',
-    'state': 1,
-    'media_link': 'https://facebook.com',
-    'social_media': 'Facebook',
-    'lat': 50.431782,
-    'long': 30.516382,
-    'date': 1593352800,
-    'likes': 0
-  });
-  await data.insert('events', {
-    'name': 'A. V. fomin Botanic Garden',
-    'state': 0,
-    'media_link': 'https://instagram.com',
-    'social_media': 'Instagram',
-    'lat': 50.441915,
-    'long': 30.5110729,
-    'date': 1599591600,
-    'likes': 0
-  });
-*/
+    await data.insert('events', {
+      'name': 'Kyiv Planetarium',
+      'state': 1,
+      'media_link': 'https://facebook.com',
+      'social_media': 'Facebook',
+      'lat': 50.431782,
+      'long': 30.516382,
+      'date': 1593352800,
+      'likes': 0
+    });
+    await data.insert('events', {
+      'name': 'A. V. fomin Botanic Garden',
+      'state': 0,
+      'media_link': 'https://instagram.com',
+      'social_media': 'Instagram',
+      'lat': 50.441915,
+      'long': 30.5110729,
+      'date': 1599591600,
+      'likes': 0
+    });
+
+    await File('.lock_db').create();
+  }
+
   final app = Application<AppChannel>()..options.port = 8070;
 
   final count = Platform.numberOfProcessors ~/ 2;
   await app.start(numberOfInstances: count > 0 ? count : 1);
-//
-//  await db.insert('events', <String, dynamic>{
-//    'name': 'Product 1',
-//    'state': 0,
-//    'lat': 1.01010101,
-//    'long': '0.10010101010',
-//    'date': DateTime.now().millisecondsSinceEpoch ~/ 1000
-//  });
-//  await db.insert('Product', <String, dynamic>{'title': 'Product 1'});
-//
-//  var result = await db.query('Product');
-//  print(result);
-//  // prints [{id: 1, title: Product 1}, {id: 2, title: Product 1}]
-//  await db.close();
 }
 
 Future<sq.Database> get db async {
